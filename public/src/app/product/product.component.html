@@ -1,0 +1,17 @@
+<div class="container border p-5">
+    <h2>Products List</h2>
+    <div class="row justify-content-between">
+        <div *ngFor="let product of products" class="p-3 d-inline-block border col-4 text-center">
+            <div class="">
+                <img [src]="product.imageUrl" alt="" class="col-6">
+            </div>
+            <div class="">
+                <p>{{ product.title }}</p>
+                <p>${{ product.price }}</p>
+                <button [routerLink]="['edit', product._id]" class="btn btn-primary mx-2" type="button">Edit</button>
+                <button (click)="delete(product._id)" class="btn btn-danger" type="button">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
